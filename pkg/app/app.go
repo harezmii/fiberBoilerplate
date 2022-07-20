@@ -15,7 +15,6 @@ func Run() {
 	app.Get("/swagger/*", fiberSwagger.WrapHandler)
 
 	// Database Connection
-
 	client, connError := ent.Conn()
 	if connError != nil {
 		return
