@@ -1,4 +1,20 @@
-basePath: /
+basePath: :1453/
+definitions:
+  model.Response:
+    properties:
+      data: {}
+      message:
+        type: string
+      statusCode:
+        type: integer
+    type: object
+  model.User:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+    type: object
 host: 127.0.0.1
 info:
   contact:
@@ -12,5 +28,106 @@ info:
   termsOfService: http://swagger.io/terms/
   title: Fiber Boilerplate API
   version: "1.0"
-paths: {}
+paths:
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: get all users
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: All  Data
+      tags:
+      - Users
+    post:
+      consumes:
+      - application/json
+      description: create users
+      parameters:
+      - description: User form
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Create Data
+      tags:
+      - Users
+  /users/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete users
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Delete Data
+      tags:
+      - Users
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Show Data
+      tags:
+      - Users
+    put:
+      consumes:
+      - application/json
+      description: update user
+      parameters:
+      - description: User Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: User update form
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      summary: User Update Data
+      tags:
+      - Users
 swagger: "2.0"

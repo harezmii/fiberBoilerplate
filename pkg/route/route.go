@@ -19,7 +19,7 @@ func SetupRoute(app *fiber.App, client *ent.Client) {
 
 	app.Get("/users", userRepo.Index)
 	app.Get("/users/:id", userRepo.Show)
-	app.Post("/users", userRepo.Create)
+	app.Post("/users", userRepo.Store)
 	app.Put("/users/:id", userRepo.Update)
 	app.Delete("/users/:id", userRepo.Delete)
 }
