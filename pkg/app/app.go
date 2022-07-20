@@ -1,13 +1,18 @@
 package app
 
 import (
+	_ "fiberBoilerplate/pkg/docs"
 	"fiberBoilerplate/pkg/ent"
 	"fiberBoilerplate/pkg/route"
 	"github.com/gofiber/fiber/v2"
+	fiberSwagger "github.com/swaggo/fiber-swagger"
 )
 
 func Run() {
 	app := fiber.New()
+
+	//Swagger Initialize
+	app.Get("/swagger/*", fiberSwagger.WrapHandler)
 
 	// Database Connection
 
