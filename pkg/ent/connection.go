@@ -11,7 +11,6 @@ func Conn() (*Client, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer client.Close()
 
 	// Run the auto migration tool.
 	if errCreate := client.Schema.Create(context.Background()); err != nil {

@@ -15,6 +15,7 @@ func Run() {
 	if connError != nil {
 		return
 	}
+	defer client.Close()
 	// app routes
 
 	route.SetupRoute(app, client)

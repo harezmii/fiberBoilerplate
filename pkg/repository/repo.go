@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"context"
 	"fiberBoilerplate/pkg/ent"
 	"github.com/gofiber/fiber/v2"
 )
@@ -9,6 +10,12 @@ type Repo struct {
 
 	// Database connection
 	Conn ent.Client
+
+	// Context
+	Context context.Context
+
+	// Limit
+	Limit int
 }
 
 type IRepo interface {
