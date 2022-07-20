@@ -7,7 +7,7 @@ import (
 )
 
 func Conn() (*Client, error) {
-	client, err := Open("mysql", "<user>:<pass>@tcp(<host>:<port>)/<database>?parseTime=True")
+	client, err := Open("mysql", "root:@tcp(127.0.0.1:3306)/fiber?parseTime=True")
 	if err != nil {
 		return nil, err
 	}
